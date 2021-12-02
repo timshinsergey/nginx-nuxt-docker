@@ -1,4 +1,9 @@
 version: '3'
+
+networks:
+  my-network:
+    driver: bridge
+
 services:
   frontend:
     build:
@@ -10,10 +15,13 @@ services:
       - '6001:6001'
     command:
       'npm run start'
+    networks:
+      - my-network
   nginx:
     build:
       context: ./nginx
       dockerfile: ./Dockerfile
+    restart: always
     container_name: proxy_nginx
     ports:
       - '80:80'
@@ -23,5 +31,5 @@ services:
       - ./logs:/var/log/nginx/
     depends_on:
       - frontend
-    command:
-      'nginx -g "daemon off;"'
+    networks:
+      - my-network
