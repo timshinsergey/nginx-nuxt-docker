@@ -2,14 +2,14 @@ version: '3'
 
 services:
   frontend:
-    build: /frontend
+    build: ./frontend
     restart: always
     container_name: frontend
     ports:
       - '6001:6001'
     command: 'npm run start'
   nginx:
-    build: /nginx
+    build: ./nginx
     container_name: proxy_nginx
     ports:
       - '80:80'
