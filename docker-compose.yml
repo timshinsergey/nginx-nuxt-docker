@@ -13,15 +13,13 @@ services:
     container_name: frontend
     ports:
       - '6001:6001'
-    command:
-      'npm run start'
+    command: 'npm run start'
     networks:
       - my-network
   nginx:
     build:
       context: ./nginx
       dockerfile: ./Dockerfile
-    restart: always
     container_name: proxy_nginx
     ports:
       - '80:80'
