@@ -1,25 +1,15 @@
 version: '3'
 
-networks:
-  my-network:
-    driver: bridge
-
 services:
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: ./Dockerfile
+    build: /frontend
     restart: always
     container_name: frontend
     ports:
       - '6001:6001'
     command: 'npm run start'
-    networks:
-      - my-network
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: ./Dockerfile
+    build: /nginx
     container_name: proxy_nginx
     ports:
       - '80:80'
@@ -29,5 +19,3 @@ services:
       - ./logs:/var/log/nginx/
     depends_on:
       - frontend
-    networks:
-      - my-network
