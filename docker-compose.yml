@@ -9,3 +9,12 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./logs:/var/log/nginx/
+    depends_on:
+      - frontend
+  frontend:
+    build: ./frontend
+    restart: always
+    container_name: frontend
+    ports:
+      - '6001:6001'
+    command: 'npm run start'
