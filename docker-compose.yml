@@ -1,13 +1,6 @@
 version: '3.7'
 
 services:
-  frontend:
-    build: ./frontend
-    restart: always
-    container_name: frontend
-    ports:
-      - '6001:6001'
-    command: 'npm run start'
   nginx:
     build: ./nginx
     container_name: proxy_nginx
