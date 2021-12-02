@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
-    host: '0.0.0.0',
-    port: 6001
+    host: process.env.NUXT_HOST,
+    port: process.env.NUXT_PORT
   },
   head: {
     titleTemplate: '%s - frontend',

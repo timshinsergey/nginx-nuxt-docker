@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 services:
   frontend:
@@ -13,7 +13,6 @@ services:
     container_name: proxy_nginx
     ports:
       - '80:80'
-      - '443:443'
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./logs:/var/log/nginx/
