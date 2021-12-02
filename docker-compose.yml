@@ -23,3 +23,5 @@ services:
       - ./logs:/var/log/nginx/
     depends_on:
       - frontend
+    command:
+      'nginx -g daemon off'
